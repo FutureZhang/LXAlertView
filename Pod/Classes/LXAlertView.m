@@ -92,15 +92,13 @@ static CGFloat const KHeightMessage = 90;
     [super viewDidLoad];
     if (self.preferredStyle == LXAlertViewStyleActionSheet) {
         self.actionHeight = KHeight50;
-        
         self.collectionViewWidth = KSCREEN_WIDTH;
-        self.collectionViewHeight = self.actionHeight*self.actions.count+KHeight5*(self.actions.count-1);
+        self.collectionViewHeight = self.actionHeight*self.actions.count+KHeight5;
     }else{
         self.titleHeight = self.attributedTitle.length==0?0.1:KHeight44;
         self.messageHeight = self.attributedMessage.length==0?0.1:KHeightMessage;
         self.actionHeight = self.actions.count==0?0.1:KHeight44;
-        
-        self.collectionViewWidth = ceilf(KSCREEN_WIDTH*1048/1242);
+        self.collectionViewWidth = ceilf(KSCREEN_WIDTH*275/375);
         self.collectionViewHeight = self.titleHeight+self.messageHeight+(self.actions.count==2?self.actionHeight:self.actionHeight*self.actions.count);
     }
     self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -133,7 +131,7 @@ static CGFloat const KHeightMessage = 90;
  */
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     if (self.preferredStyle == LXAlertViewStyleActionSheet) {
-        return 1;
+        return self.actions.count;
     }else{
         return 3;
     }
@@ -143,7 +141,7 @@ static CGFloat const KHeightMessage = 90;
  */
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (self.preferredStyle == LXAlertViewStyleActionSheet) {
-        return self.actions.count;
+        return 1;
     }else{
         if (section == 0) return 1;
         if (section == 1) return 1;
@@ -160,8 +158,8 @@ static CGFloat const KHeightMessage = 90;
         cell.topLine.backgroundColor = [UIColor clearColor];
         cell.rightLine.backgroundColor = [UIColor clearColor];
         cell.actionButton.backgroundColor = KGrayBgColor244;
-        [cell.actionButton setAttributedTitle:self.actions[indexPath.item] forState:UIControlStateNormal];
-        cell.actionButton.tag = indexPath.item;
+        [cell.actionButton setAttributedTitle:self.actions[indexPath.section] forState:UIControlStateNormal];
+        cell.actionButton.tag = indexPath.section;
         [cell.actionButton addTarget:self action:@selector(clickActionButton:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
@@ -217,17 +215,19 @@ static CGFloat const KHeightMessage = 90;
  collectionView 每个section上左下右的间距
  */
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    if (section == self.actions.count - 1) {
+        return UIEdgeInsetsMake(KHeight5, 0, 0, 0);
+    }
+    if (section == 0) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    return UIEdgeInsetsMake(0.7, 0, 0, 0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    if (self.preferredStyle == LXAlertViewStyleActionSheet) {
-        return KHeight5;
-    }else{
-        return 0;
-    }
+    return 0;
 }
 #pragma mark --------------------UI---------------------------
 /**
