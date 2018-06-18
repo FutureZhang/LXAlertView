@@ -1,8 +1,8 @@
 //
 //  LXAlertViewCell.h
-//  LXAlertView
+//  LXAlertController
 //
-//  Created by zlx on 2018/3/28.
+//  Created by zlx on 2018/3/1.
 //  Copyright © 2018年 zlx. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 @interface LXAlertViewTitleCell : UICollectionViewCell
 //标题
 @property (strong, nonatomic) UILabel *titleLabel;
-//标题点击按钮（未来可能使用）
-@property (strong, nonatomic) UIButton *titleAction;
+//button（未来可能使用）
+@property (strong, nonatomic) UIButton *button;
 /**cell的标识*/
 + (NSString *)getCellId;
 @end
@@ -24,8 +24,8 @@
 @property (strong, nonatomic) UILabel *topLine;
 //内容
 @property (strong, nonatomic) UILabel *messageLabel;
-//提示内容点击按钮（未来可能使用）
-@property (strong, nonatomic) UIButton *messageAction;
+//button（未来可能使用）
+@property (strong, nonatomic) UIButton *button;
 /**cell的标识*/
 + (NSString *)getCellId;
 @end
@@ -36,7 +36,7 @@
 @property (strong, nonatomic) UILabel *topLine;
 //cell右面的灰色分割线
 @property (strong, nonatomic) UILabel *rightLine;
-//按钮
+//button
 @property (strong, nonatomic) UIButton *actionButton;
 /**cell的标识*/
 + (NSString *)getCellId;

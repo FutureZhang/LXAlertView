@@ -14,7 +14,7 @@
 		8C4AD9CF20C6DAD600343050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4AD9CD20C6DAD600343050 /* LaunchScreen.storyboard */; };
 		8C4AD9D220C6DAD600343050 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4AD9D120C6DAD600343050 /* main.m */; };
 		8C7BC6F520D357F6002CD471 /* LXAlertViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BC6F120D357F6002CD471 /* LXAlertViewCell.m */; };
-		8C7BC6F620D357F6002CD471 /* LXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BC6F320D357F6002CD471 /* LXAlertView.m */; };
+		8C7BC6F620D357F6002CD471 /* LXAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BC6F320D357F6002CD471 /* LXAlertController.m */; };
 		F48074AC08A8EF2DE235165F /* libPods-LXAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B48080D76F459484D9C2B81A /* libPods-LXAlertView.a */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +31,8 @@
 		8C4AD9D020C6DAD600343050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C4AD9D120C6DAD600343050 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C7BC6F120D357F6002CD471 /* LXAlertViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAlertViewCell.m; path = ../../../Pod/Classes/LXAlertViewCell.m; sourceTree = "<group>"; };
-		8C7BC6F220D357F6002CD471 /* LXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXAlertView.h; path = ../../../Pod/Classes/LXAlertView.h; sourceTree = "<group>"; };
-		8C7BC6F320D357F6002CD471 /* LXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAlertView.m; path = ../../../Pod/Classes/LXAlertView.m; sourceTree = "<group>"; };
+		8C7BC6F220D357F6002CD471 /* LXAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXAlertController.h; path = ../../../Pod/Classes/LXAlertController.h; sourceTree = "<group>"; };
+		8C7BC6F320D357F6002CD471 /* LXAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXAlertController.m; path = ../../../Pod/Classes/LXAlertController.m; sourceTree = "<group>"; };
 		8C7BC6F420D357F6002CD471 /* LXAlertViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXAlertViewCell.h; path = ../../../Pod/Classes/LXAlertViewCell.h; sourceTree = "<group>"; };
 		9C20AEA2686996C1E2569B75 /* Pods-LXAlertView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXAlertView.release.xcconfig"; path = "Pods/Target Support Files/Pods-LXAlertView/Pods-LXAlertView.release.xcconfig"; sourceTree = "<group>"; };
 		B48080D76F459484D9C2B81A /* libPods-LXAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LXAlertView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +84,7 @@
 				8C4AD9C320C6DAD400343050 /* AppDelegate.m */,
 				8C4AD9C520C6DAD400343050 /* ViewController.h */,
 				8C4AD9C620C6DAD400343050 /* ViewController.m */,
-				8C7BC6F020D357DD002CD471 /* LXAlertView */,
+				8C7BC6F020D357DD002CD471 /* LXAlertController */,
 				8C4AD9C820C6DAD400343050 /* Main.storyboard */,
 				8C4AD9CB20C6DAD600343050 /* Assets.xcassets */,
 				8C4AD9CD20C6DAD600343050 /* LaunchScreen.storyboard */,
@@ -94,15 +94,15 @@
 			path = LXAlertView;
 			sourceTree = "<group>";
 		};
-		8C7BC6F020D357DD002CD471 /* LXAlertView */ = {
+		8C7BC6F020D357DD002CD471 /* LXAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				8C7BC6F220D357F6002CD471 /* LXAlertView.h */,
-				8C7BC6F320D357F6002CD471 /* LXAlertView.m */,
+				8C7BC6F220D357F6002CD471 /* LXAlertController.h */,
+				8C7BC6F320D357F6002CD471 /* LXAlertController.m */,
 				8C7BC6F420D357F6002CD471 /* LXAlertViewCell.h */,
 				8C7BC6F120D357F6002CD471 /* LXAlertViewCell.m */,
 			);
-			path = LXAlertView;
+			path = LXAlertController;
 			sourceTree = "<group>";
 		};
 		C7C467F0CACD443865098F74 /* Frameworks */ = {
@@ -205,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C7BC6F620D357F6002CD471 /* LXAlertView.m in Sources */,
+				8C7BC6F620D357F6002CD471 /* LXAlertController.m in Sources */,
 				8C4AD9C720C6DAD400343050 /* ViewController.m in Sources */,
 				8C4AD9D220C6DAD600343050 /* main.m in Sources */,
 				8C4AD9C420C6DAD400343050 /* AppDelegate.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "LXAlertView.h"
+#import "LXAlertController.h"
 
 @interface ViewController ()
 
@@ -15,29 +15,28 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    LXAlertView *alertView = [LXAlertView lxAlertViewWithTitle:nil message:nil preferredStyle:LXAlertViewStyleActionSheet];
-    [alertView addAction:[@"相机" fontSize:16.0 color:[UIColor blueColor]]];
-    [alertView addAction:[@"相册" fontSize:16.0 color:[UIColor orangeColor]]];
-    [alertView addAction:[@"取消" fontSize:15.0 color:[UIColor redColor]]];
-    alertView.actionsblock = ^(NSInteger index) {
-        NSLog(@"%li",(long)index);
-    };
+    
+    LXAlertController *alertView = [LXAlertController LXAlertViewWithTitle:nil message:nil preferredStyle:LXAlertControllerStyleActionSheet];
+    LXAlertAction *action = [LXAlertAction actionWithTitle:[@"取消" fontSize:16.0 color:[UIColor orangeColor]] style:LXAlertActionStyleDefault handler:^(LXAlertAction *action) {
+        NSLog(@"%@",action.Title);
+    }];
+    [alertView addAction:action];
+    LXAlertAction *action2 = [LXAlertAction actionWithTitle:[@"确定" fontSize:16.0 color:[UIColor brownColor]] style:LXAlertActionStyleDefault handler:^(LXAlertAction *action) {
+        NSLog(@"%@",action.Title);
+    }];
+    [alertView addAction:action2];
+    LXAlertAction *action3 = [LXAlertAction actionWithTitle:[@"其他" fontSize:16.0 color:[UIColor brownColor]] style:LXAlertActionStyleDefault handler:^(LXAlertAction *action) {
+        NSLog(@"%@",action.Title);
+    }];
+    [alertView addAction:action3];
+
     [self presentViewController:alertView animated:NO completion:nil];
-    
-    
-//    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"123456" message:@"qwqwqwqwqwqwqw" preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *submit = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//    }];
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//
-//    }];
-//    [ac addAction:submit];
-//    [ac addAction:cancel];
-//
-//    [self presentViewController:ac animated:YES completion:nil];
-    
 }
 
 @end
